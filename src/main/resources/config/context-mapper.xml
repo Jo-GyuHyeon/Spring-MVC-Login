@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+		
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="mapperLocations">
+			<list>
+				<value>classpath:mappers/**/*Mapper.xml</value>
+			</list>
+		</property>
+		<property name="configLocation" value="classpath:/mappers/sql-mapper-config.xml" />
+	</bean>
+	
+	<mybatis-spring:scan base-package="org.regyu.sts" annotation="org.apache.ibatis.annotations.Mapper" factory-ref="sqlSessionFactory" />
+	
+</beans>
