@@ -33,7 +33,7 @@ body{
     }
 }
 
-.register-wrapp{
+ .register-wrapp{
     background-color: #1d1f20;
     width: 600px;
     margin: 20px auto;
@@ -54,6 +54,13 @@ ul.input-container li div{
     width: 100%;
     margin-bottom: 15px;
     padding: 10px;
+} 
+.errors-field{
+	position: relative;
+	left: 72px;
+    top: -17px;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 * {box-sizing: border-box;}

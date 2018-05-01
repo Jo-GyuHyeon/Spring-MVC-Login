@@ -9,9 +9,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="./resources/css/register.css">
 	
-	<link rel="stylesheet" href="./resources/css/register.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<script type="text/javascript" src="./resources/js/jquery-1.11.0.min.js"></script>
 	
@@ -79,35 +79,35 @@
 	                    <i class="fa fa-envelope icon"></i>
 	                    <form:input path="mberId" class="input-field" type="email" placeholder="Email" name="email"/>
 	                </div>
-                	<form:errors path="mberId" />
+                	<form:errors path="mberId" class="errors-field"/>
                 </li>
                 <li>
 	                <div>
 	                <i class="fa fa-key icon"></i>
 	                    <form:input path="password" class="input-field" type="password" placeholder="Password" name="psw"/>
 	                </div>
-               		<form:errors path="password" />
+               		<form:errors path="password" class="errors-field"/>
                 </li>
                 <li>
 	                <div>
 	                 	<i class="fa fa-lock icon"></i>
 	                    <form:input path="passwordConfirm" class="input-field" type="password" placeholder="passwordConfirm" name="pswcfm"/>
 	                </div>
-                   <form:errors path="passwordConfirm" />
+                   <form:errors path="passwordConfirm" class="errors-field"/>
                 </li>
                 <li>
 	                <div>
 	                	<i class="fa fa-user icon"></i>
 	                    <form:input path="mberNm" class="input-field" type="text" placeholder="Username" name="usrnm"/>
 	                </div>
-                    <form:errors path="mberNm" />
+                    <form:errors path="mberNm" class="errors-field"/>
                 </li>
                 <li>
 	                <div>
 	                	<i class="fa fa-volume-control-phone icon"></i>
 	                    <form:input path="phoneNumber" class="input-field" type="text" placeholder="PhoneNumber" name="phone"/>
 	                </div>
-                    <form:errors path="phoneNumber" />
+                    <form:errors path="phoneNumber" class="errors-field"/>
                 </li>
             </ul>
             
