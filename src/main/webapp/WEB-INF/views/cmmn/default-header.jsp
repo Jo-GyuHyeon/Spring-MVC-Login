@@ -11,18 +11,18 @@
 
 
 <!-- Bootstrap core CSS     -->
-<link href="resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
 <!--  Light Bootstrap Dashboard core CSS    -->
-<link href="resources/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
+<link href="resources/bootstrap/css/light-bootstrap-dashboard.css" rel="stylesheet"/>
 
 <!--  CSS for Demo Purpose, don't include it in your project     -->
-<link href="resources/css/demo.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/demo.css" rel="stylesheet" />
 
 
 <!--     Fonts and icons     -->
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
 <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-<link href="resources/css/pe-icon-7-stroke.css" rel="stylesheet" />
+<link href="resources/bootstrap/css/pe-icon-7-stroke.css" rel="stylesheet" />
 
-<script src="resources/js/jquery.min.js" type="text/javascript"></script>
+<script src="resources/bootstrap/js/jquery.min.js" type="text/javascript"></script>

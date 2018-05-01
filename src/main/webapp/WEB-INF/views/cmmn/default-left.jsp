@@ -32,7 +32,7 @@
 <form id="frm" name="frm">
 	<input type="hidden" id="pageName"  	name="pageName" />
 </form>
-	<div class="sidebar" data-color="orange" data-image="resources/img/full-screen-image.jpg">
+	<div class="sidebar" data-color="orange" data-image="resources/bootstrap/img/full-screen-image.jpg">
         <!--
             Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
             Tip 2: you can also add an image using data-image tag
@@ -50,7 +50,7 @@
     	<div class="sidebar-wrapper">
             <div class="user">
                 <div class="photo">
-                    <img src="resources/img/default-avatar.png" />
+                    <img src="resources/bootstrap/img/default-avatar.png" />
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" class="collapsed">
@@ -85,8 +85,8 @@
                         	<c:choose>
                             	<c:when test="${loginVO == null }">
                             		<li prop="menu" class="active" id="serverSide">
-		                            	<!-- <a href="#" onclick="javascript:left.pageSubmitFn('annoServerSide')">서버 사이드 회원가입</a> -->
-		                            	<a href="#" onclick="javascript:left.pageSubmitFn('serverSide')">서버 사이드 회원가입</a>
+		                            	<a href="#" onclick="javascript:left.pageSubmitFn('annoServerSide')">서버 사이드 회원가입</a>
+		                            	<!-- <a href="#" onclick="javascript:left.pageSubmitFn('serverSide')">서버 사이드 회원가입</a> -->
 		                            </li>
 		                            <li prop="menu" class="active" id="egovLoginUsr">
 		                            	<a href="#" onclick="javascript:left.pageSubmitFn('login')">로그인</a>

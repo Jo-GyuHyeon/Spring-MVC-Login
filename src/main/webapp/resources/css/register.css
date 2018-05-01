@@ -1,0 +1,125 @@
+ul{
+    list-style:none;
+    padding-left:0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-color: #1d1f20;
+    color: #416f3b;
+    font-weight: 400;
+    font-family: 'Noto Sans',sans-serif;
+}
+
+@media screen and (max-width: 1024px) {
+    *{
+        transition: all 0.8s linear; 
+    }
+    body{
+        width: 0px 0px;
+        padding-top: 10%;
+    }
+    p{
+        width: 100px;
+    }
+    .register-title{
+        margin-bottom: 10%;
+    }
+    ul.input-container li{
+        margin-top: 30px;
+    }
+}
+
+.register-wrapp{
+    background-color: #1d1f20;
+    width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border-bottom: 1px solid #1d1f20;
+    box-shadow: 8px 11px 31px rgba(0, 0, 0, 0.5);
+}
+
+ul.input-container{
+    border: 1px solid #4CAF50;
+    margin: 30px 0px 0px;
+    padding:10px;
+    box-shadow: 8px 11px 31px rgba(0, 0, 0, 0.3);
+}
+
+ul.input-container li div{
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+* {box-sizing: border-box;}
+
+.register-title{
+    padding-top: 2%;
+    transition: all 0.5s linear; 
+    color: #4CAF50;
+    font-weight: 400;
+}
+  
+  /* Style the form icons */
+  .icon {
+    padding: 10px;
+    background: dodgerblue;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  /* Style the input fields */
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    background-color: #1d1f20;
+    border: #1d1f20;
+    color: aliceblue;
+    transition: all 0.8s linear; 
+  }
+  .input-field:hover {
+    border-bottom: 2px solid dodgerblue; 
+    transition: all 0.8s ease-out;
+    width: 80%;
+  }
+ .input-field:focus {
+    border-bottom: 2px solid dodgerblue; 
+    transition: all 0.8s ease-out;
+    width: 80%;
+}
+
+
+  /* Set a style for all buttons */
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 40px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 80px;
+    font-size: 100%;
+}
+  
+  /* Set a style for the submit button */
+  .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
