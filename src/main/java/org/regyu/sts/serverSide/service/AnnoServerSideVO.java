@@ -4,7 +4,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.regyu.sts.cmmn.validator.Phone;
 
+//Annotaion을 이용한 vaild check ex) @Phone
 public class AnnoServerSideVO {
 
 	@NotEmpty(message = "필수 입력 값입니다.")
@@ -23,7 +25,7 @@ public class AnnoServerSideVO {
 	private String mberNm;
 
 	@NotEmpty
-//	@Phone
+	@Phone
 	private String phoneNumber;
 
 	public String getMberId() {

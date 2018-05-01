@@ -9,22 +9,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
-	<link rel="stylesheet" type="text/css" href="./resources/css/register.css">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
 	<script type="text/javascript" src="./resources/js/jquery-1.11.0.min.js"></script>
 	
-<title>회원가입</title>
 	<script type="text/javascript">
 
   	var commonCl = {
 		$serverSideVO 	: null,
 		
 		validInit 		: function(){
-			this.$serverSideVO = $("#annoServerSideVO");
+			//this.$serverSideVO = $("#annoServerSideVO");
 			
-			//this.$serverSideVO = $("#serverSideVO");
+			this.$serverSideVO = $("#serverSideVO");
 		},
 		
 		vaildFn 		: function() {
@@ -39,8 +34,8 @@
 				}
 			} */
 			
-			this.$serverSideVO.attr("action", "annoServerSideValidChk.do");
-			//this.$serverSideVO.attr("action", "serverSideValidChk.do");
+			//this.$serverSideVO.attr("action", "annoServerSideValidChk.do");
+			this.$serverSideVO.attr("action", "serverSideValidChk.do");
 			
 			this.$serverSideVO.submit();
 		},
@@ -51,7 +46,6 @@
 			this.$serverSideVO.submit();
 		}
 	} 
-
 	
 	$(function() {
 		commonCl.validInit();
@@ -65,11 +59,17 @@
         </c:if>  */
 	})
 	</script>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="./resources/css/register.css" type="text/css">
+	<!-- css는 script 뒤에 link 한다. chrome 에서 적용안되는 버그가 발생하기 때문이다. -->
+	<title>회원가입</title>
 </head>
 <body>
     <div class="register-wrapp">
-        <%-- <form:form commandName="serverSideVO"> --%>
-         <form:form commandName="annoServerSideVO">
+        <form:form commandName="serverSideVO">
+         <%-- <form:form commandName="annoServerSideVO"> --%>
             <h2 class="register-title">Register Form</h2>
             <p class="register-title">Please fill in this form to create an account.</p>
 
