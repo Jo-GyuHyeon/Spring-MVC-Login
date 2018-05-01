@@ -1,4 +1,4 @@
-package org.regyu.sts.main.serverSide.service;
+package org.regyu.sts.serverSide.service;
 
 import javax.validation.constraints.Size;
 
@@ -23,7 +23,7 @@ public class AnnoServerSideVO {
 	private String mberNm;
 
 	@NotEmpty
-	// @Phone
+//	@Phone
 	private String phoneNumber;
 
 	public String getMberId() {

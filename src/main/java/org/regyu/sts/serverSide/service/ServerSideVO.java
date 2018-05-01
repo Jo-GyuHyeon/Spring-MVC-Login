@@ -1,4 +1,4 @@
-package org.regyu.sts.main.serverSide.service;
+package org.regyu.sts.serverSide.service;
 
 public class ServerSideVO {
 	

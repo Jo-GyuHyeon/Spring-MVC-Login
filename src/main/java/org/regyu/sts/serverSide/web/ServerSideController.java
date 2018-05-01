@@ -1,9 +1,9 @@
-package org.regyu.sts.main.serverSide.web;
+package org.regyu.sts.serverSide.web;
 
 import javax.validation.Valid;
 
-import org.regyu.sts.main.serverSide.service.AnnoServerSideVO;
-import org.regyu.sts.main.serverSide.service.ServerSideVO;
+import org.regyu.sts.serverSide.service.AnnoServerSideVO;
+import org.regyu.sts.serverSide.service.ServerSideVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
