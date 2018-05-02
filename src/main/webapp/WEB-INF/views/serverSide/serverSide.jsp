@@ -49,14 +49,16 @@
 	
 	$(function() {
 		commonCl.validInit();
-
+		alert("test");
+		alert("${eSangMu}")
         $("#registBtn").click(function() {        	
         	commonCl.vaildFn();
         });
          
-/*         <c:if test="${eSangMu == 'Y'}">
+        <c:if test="${eSangMu == 'Y'}">
+       		alert("이상무 ");
         	commonCl.checkEsangMu();
-        </c:if>  */
+        </c:if>  
 	})
 	</script>
 	
@@ -71,7 +73,7 @@
         <form:form commandName="serverSideVO">
          <%-- <form:form commandName="annoServerSideVO"> --%>
             <h2 class="register-title">Register Form</h2>
-            <p class="register-title">Please fill in this form to create an account.</p>
+            <p class="register-title">Please fill in this form to create an Singup.</p>
 
             <ul class="input-container">
                 <li>	
