@@ -3,6 +3,6 @@
 
 <configuration>
     <typeAliases>
-
+		<typeAlias alias="singInVO" type="org.regyu.sts.singin.service.SingInVO"/>
     </typeAliases>
 </configuration>

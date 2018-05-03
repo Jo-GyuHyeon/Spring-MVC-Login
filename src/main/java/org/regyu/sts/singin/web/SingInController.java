@@ -2,8 +2,10 @@ package org.regyu.sts.singin.web;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
+
 import org.regyu.sts.cmmn.validator.SingInVOValidator;
 import org.regyu.sts.singin.service.AnnoSingInVO;
+import org.regyu.sts.singin.service.SingInService;
 import org.regyu.sts.singin.service.SingInVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
 public class SingInController {
 
@@ -24,6 +27,9 @@ public class SingInController {
 	//custom validator
 	@Resource(name = "singInVOValidator")
 	private SingInVOValidator validator;
+	
+	@Resource(name = "singInService")
+	private SingInService singInService;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -54,6 +60,18 @@ public class SingInController {
 		}
 		
 		return "singIn/singIn";
+	}
+	
+	@RequestMapping(value = "singInInsert.do")
+	public String serverSideInsert(@ModelAttribute SingInVO singInVO) throws Exception {
+		
+		try {
+			singInService.insertMber(singInVO);
+		} catch (Exception e) {
+			
+		}
+		
+		return "forward:/login.do";
 	}
 	
 	//annotaion VO vaild check
