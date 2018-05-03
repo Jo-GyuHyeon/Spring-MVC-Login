@@ -1,10 +1,10 @@
-package org.regyu.sts.serverSide.web;
+package org.regyu.sts.singin.web;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
-import org.regyu.sts.cmmn.validator.ServerSideVOValidator;
-import org.regyu.sts.serverSide.service.AnnoServerSideVO;
-import org.regyu.sts.serverSide.service.ServerSideVO;
+import org.regyu.sts.cmmn.validator.SingInVOValidator;
+import org.regyu.sts.singin.service.AnnoSingInVO;
+import org.regyu.sts.singin.service.SingInVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ServerSideController {
+public class SingInController {
 
-	private static final Logger logger = LoggerFactory.getLogger(ServerSideController.class);
+	private static final Logger logger = LoggerFactory.getLogger(SingInController.class);
 	
 	//custom validator
-	@Resource(name = "serverSideVOValidator")
-	private ServerSideVOValidator validator;
+	@Resource(name = "singInVOValidator")
+	private SingInVOValidator validator;
 	
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -32,18 +32,18 @@ public class ServerSideController {
 		dataBinder.setValidator(validator);
 	}
 
-	@RequestMapping(value = "serverSide.do")
-	public String serverSide(@ModelAttribute ServerSideVO serverSideVO) throws Exception {
-		logger.info("serverSide.do");
-		return "serverSide/serverSide";
+	@RequestMapping(value = "singIn.do")
+	public String singIn(@ModelAttribute SingInVO singInVO) throws Exception {
+		logger.info("singIn.do");
+		return "singIn/singIn";
 	}
-	@RequestMapping(value = "serverSideValidChk.do")
-	public String serverSideValidChk(@ModelAttribute @Validated ServerSideVO serverSideVO,
+	@RequestMapping(value = "singInValidChk.do")
+	public String singInValidChk(@ModelAttribute @Validated SingInVO singInVO,
 			BindingResult result, ModelMap model) throws Exception {
-		logger.info("serverSideValidChk");
+		logger.info("singInValidChk");
 		
 //		@Validated 가 없을때 객체를 이용하여 check custom VO validation 
-//		 validator.validate(serverSideVO, result);
+//		 validator.validate(singInVO, result);
 //		@Validated 있을 때 @InitBinder 와 함께 사용
 		
 		 //result custom VO validation
@@ -53,21 +53,21 @@ public class ServerSideController {
 			model.addAttribute("eSangMu", "Y");
 		}
 		
-		return "serverSide/serverSide";
+		return "singIn/singIn";
 	}
 	
 	//annotaion VO vaild check
-	@RequestMapping(value = "annoServerSide.do")
-	public String annoServerSide(@ModelAttribute AnnoServerSideVO annoServerSideVO) throws Exception {
-		return "serverSide/serverSide";
+	@RequestMapping(value = "annosingIn.do")
+	public String annosingIn(@ModelAttribute AnnoSingInVO annosingInVO) throws Exception {
+		return "singIn/singIn";
 	}
 	
-	@RequestMapping(value = "annoServerSideValidChk.do")
-	public String annoServerSideValidChk(@ModelAttribute @Valid AnnoServerSideVO annoServerSideVO,
+	@RequestMapping(value = "annosingInValidChk.do")
+	public String annosingInValidChk(@ModelAttribute @Valid AnnoSingInVO annosingInVO,
 			BindingResult bindingResult) throws Exception {
 		logger.info("에러 여부 : " + bindingResult.hasErrors());
 
-		return "serverSide/serverSide";
+		return "singIn/singIn";
 	}
 	
 //	@Valid = JSR-303의 빈검증기를 이용하여 모델 오브젝트를 검증하는 지시자

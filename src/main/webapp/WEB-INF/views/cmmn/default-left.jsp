@@ -85,8 +85,8 @@
                         	<c:choose>
                             	<c:when test="${loginVO == null }">
                             		<li prop="menu" class="active" id="serverSide">
-		                            	<!-- <a href="#" onclick="javascript:left.pageSubmitFn('annoServerSide')">서버 사이드 회원가입</a> -->
-		                            	<a href="#" onclick="javascript:left.pageSubmitFn('serverSide')">서버 사이드 회원가입</a>
+		                            	<!-- <a href="#" onclick="javascript:left.pageSubmitFn('annosingIn')">서버 사이드 회원가입</a> -->
+		                            	<a href="#" onclick="javascript:left.pageSubmitFn('singIn')">서버 사이드 회원가입</a>
 		                            </li>
 		                            <li prop="menu" class="active" id="egovLoginUsr">
 		                            	<a href="#" onclick="javascript:left.pageSubmitFn('login')">로그인</a>

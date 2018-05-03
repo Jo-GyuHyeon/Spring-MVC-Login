@@ -11,46 +11,47 @@
 	
 	<script type="text/javascript" src="./resources/js/jquery-1.11.0.min.js"></script>
 	
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	
 	<script type="text/javascript">
 
   	var commonCl = {
-		$serverSideVO 	: null,
+		$singInVO 	: null,
 		
 		validInit 		: function(){
-			//this.$serverSideVO = $("#annoServerSideVO");
+			//this.$singInVO = $("#annosingInVO");
 			
-			this.$serverSideVO = $("#serverSideVO");
+			this.$singInVO = $("#singInVO");
 		},
 		
 		vaildFn 		: function() {
 			
-			//this.$serverSideVO.attr("action", "annoServerSideValidChk.do");
-			/* if (typeof(grecaptcha) !== 'undefined') {
+			//this.$singInVO.attr("action", "annoServerSideValidChk.do");
+			 if (typeof(grecaptcha) !== 'undefined') {
 				
 				if (grecaptcha.getResponse() === "") {
 					alert("스팸방지코드(Captcha Code)가 틀렸습니다.");
 					
 					return;
 				}
-			} */
+			} 
 			
-			//this.$serverSideVO.attr("action", "annoServerSideValidChk.do");
-			this.$serverSideVO.attr("action", "serverSideValidChk.do");
+			//this.$singInVO.attr("action", "annoServerSideValidChk.do");
+			this.$singInVO.attr("action", "serverSideValidChk.do");
 			
-			this.$serverSideVO.submit();
+			this.$singInVO.submit();
 		},
 		
 		checkEsangMu	: function() {
-			this.$serverSideVO.attr("action", "serverSideInsert.do");
+			this.$singInVO.attr("action", "serverSideInsert.do");
 			
-			this.$serverSideVO.submit();
+			this.$singInVO.submit();
 		}
 	} 
 	
 	$(function() {
 		commonCl.validInit();
-		alert("test");
-		alert("${eSangMu}")
+
         $("#registBtn").click(function() {        	
         	commonCl.vaildFn();
         });
@@ -70,8 +71,8 @@
 </head>
 <body>
     <div class="register-wrapp">
-        <form:form commandName="serverSideVO">
-         <%-- <form:form commandName="annoServerSideVO"> --%>
+        <form:form commandName="singInVO">
+         <%-- <form:form commandName="annosingInVO"> --%>
             <h2 class="register-title">Register Form</h2>
             <p class="register-title">Please fill in this form to create an Singup.</p>
 
@@ -111,6 +112,9 @@
 	                </div>
                     <form:errors path="phoneNumber" class="errors-field"/>
                 </li>
+                
+                <div class="g-recaptcha" data-sitekey="6LdVrlYUAAAAAIxJQgUDwRMD3qvGxaBSvk3lhjsC"></div>
+                
             </ul>
             
             <input type="button" id="registBtn" class="btn" value="Register" />

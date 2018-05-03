@@ -3,7 +3,7 @@ package org.regyu.sts.cmmn.validator;
 import java.util.Locale;
 import javax.annotation.Resource;
 import org.regyu.sts.cmmn.Constants;
-import org.regyu.sts.serverSide.service.ServerSideVO;
+import org.regyu.sts.singin.service.SingInVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-@Component("serverSideVOValidator")
-public class ServerSideVOValidator implements Validator {
+@Component("singInVOValidator")
+public class SingInVOValidator implements Validator {
 
-	private static final Logger logger = LoggerFactory.getLogger(ServerSideVOValidator.class);
+	private static final Logger logger = LoggerFactory.getLogger(SingInVOValidator.class);
 
 	// context-message.xml message Bean DI
 	@Resource(name = "messageSource")
@@ -30,7 +30,7 @@ public class ServerSideVOValidator implements Validator {
 	public boolean supports(Class<?> clazz) {
 		logger.info("supports(Class<?> clazz)");
 
-		return ServerSideVO.class.equals(clazz); // supports 는 해당 검사대상이 오브젝트인지 아닌지 검사함 (오브젝트 여야함)
+		return SingInVO.class.equals(clazz); // supports 는 해당 검사대상이 오브젝트인지 아닌지 검사함 (오브젝트 여야함)
 	}
 
 	// 2차검문
@@ -38,10 +38,10 @@ public class ServerSideVOValidator implements Validator {
 	public void validate(Object target, Errors errors) {
 		logger.info("validate(Object target, Errors errors)");
 
-		ServerSideVO serverSideVO = (ServerSideVO) target;
+		SingInVO singInVO = (SingInVO) target;
 		
 		/*
-		if ("".equals(serverSideVO.getMberId()) || serverSideVO.getMberId() == null) {
+		if ("".equals(singInVO.getMberId()) || singInVO.getMberId() == null) {
 			errors.rejectValue("mberId", "errors.required", new Object[] {"'아이디 혹은 이메일'","'테스트1","'테스트2'"}, "아이디는 필수입력값");
 		}
 		//rejectValue(1.= field,(jsp path일치) / 2.= errorCode,(context-message.xml 프로퍼티)/ 3. errorArgs(context-message.xml 프로퍼티의 파라미터) ex).{0} / 4. defaultMessage (메세지 우선순위낮음)
@@ -49,18 +49,18 @@ public class ServerSideVOValidator implements Validator {
 
 		System.out.println("벨리데이터 테스트");
 
-		mberIdValidChk("serverSideVO.mberId", serverSideVO.getMberId(), serverSideVO, errors);
-		passwordValidChk("serverSideVO.password", serverSideVO.getPasswordConfirm(), serverSideVO, errors);
-		passwordConfirmValidChk("serverSideVO.passwordConfirm", serverSideVO.getPasswordConfirm(), serverSideVO, errors);
-		mberNmValidChk("serverSideVO.mberNm", serverSideVO.getMberNm(), serverSideVO, errors);
-		phoneNumberValidChk("serverSideVO.phoneNumber", serverSideVO.getPhoneNumber(), serverSideVO, errors);
+		mberIdValidChk("singInVO.mberId", singInVO.getMberId(), singInVO, errors);
+		passwordValidChk("singInVO.password", singInVO.getPasswordConfirm(), singInVO, errors);
+		passwordConfirmValidChk("singInVO.passwordConfirm", singInVO.getPasswordConfirm(), singInVO, errors);
+		mberNmValidChk("singInVO.mberNm", singInVO.getMberNm(), singInVO, errors);
+		phoneNumberValidChk("singInVO.phoneNumber", singInVO.getPhoneNumber(), singInVO, errors);
 	}
 	
 	private String getPropMessage(String string) {
 		return message.getMessage(string, null, Locale.KOREA);
 	}
 	
-	private void mberIdValidChk(String string, String mberId, ServerSideVO serverSideVO, Errors errors) {
+	private void mberIdValidChk(String string, String mberId, SingInVO singInVO, Errors errors) {
 		boolean chk = false;
 
 		String fieldName = "mberId", 
@@ -96,7 +96,7 @@ public class ServerSideVOValidator implements Validator {
 		return true;
 	}
 	
-	private void passwordValidChk(String string, String password, ServerSideVO serverSideVO, Errors errors) {
+	private void passwordValidChk(String string, String password, SingInVO singInVO, Errors errors) {
 		boolean chk = false;
 
 		String fieldName = "password", 
@@ -132,7 +132,7 @@ public class ServerSideVOValidator implements Validator {
 		}
 	}
 
-	private void passwordConfirmValidChk(String string, String passwordConfirm, ServerSideVO serverSideVO,
+	private void passwordConfirmValidChk(String string, String passwordConfirm, SingInVO singInVO,
 			Errors errors) {
 		boolean chk = false;
 
@@ -149,7 +149,7 @@ public class ServerSideVOValidator implements Validator {
 		// 비밀번호 일치여부 유효성 체크 시작
 		errorCode = Constants.ERROR_PWCONFIRM;
 
-		chk = pwConfirm(passwordConfirm, serverSideVO.getPassword());
+		chk = pwConfirm(passwordConfirm, singInVO.getPassword());
 
 		if (!chk) {
 			errors.rejectValue(fieldName, errorCode, new Object[] { propFieldName }, null);
@@ -185,7 +185,7 @@ public class ServerSideVOValidator implements Validator {
 		return true;
 	}
 	
-	private void mberNmValidChk(String string, String mberNm, ServerSideVO serverSideVO, Errors errors) {
+	private void mberNmValidChk(String string, String mberNm, SingInVO singInVO, Errors errors) {
 		boolean chk = false;
 
 		String fieldName = "mberNm", 
@@ -199,7 +199,7 @@ public class ServerSideVOValidator implements Validator {
 		}
 	}
 	
-	private void phoneNumberValidChk(String string, String phoneNumber, ServerSideVO serverSideVO, Errors errors) {
+	private void phoneNumberValidChk(String string, String phoneNumber, SingInVO singInVO, Errors errors) {
 		boolean chk = false;
 
 		String fieldName = "phoneNumber", 
