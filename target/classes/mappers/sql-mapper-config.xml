@@ -4,5 +4,6 @@
 <configuration>
     <typeAliases>
 		<typeAlias alias="singInVO" type="org.regyu.sts.singin.service.SingInVO"/>
+		<typeAlias alias="loginVO" type="org.regyu.sts.login.service.LoginVO"/>
     </typeAliases>
 </configuration>

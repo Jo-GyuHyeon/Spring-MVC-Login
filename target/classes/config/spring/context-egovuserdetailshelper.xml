@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!--인증된 유저의 LoginVO, 권한, 인증 여부를 확인 할 수있는 서비스 클래스-->
+	<bean id="egovUserDetailsHelper" class="org.regyu.sts.login.service.EgovUserDetailsHelper">
+        <property name="egovUserDetailsService">
+        	<!-- 원하는 bean id를 아래에 ref 태그에 적용한다 -->
+            <ref bean="egovUserDetailsSessionService" />
+        </property>
+    </bean>
+
+    <bean id="egovUserDetailsSessionService" class="org.regyu.sts.login.service.impl.EgovUserDetailsSessionServiceImpl"/>
+</beans>
+
+

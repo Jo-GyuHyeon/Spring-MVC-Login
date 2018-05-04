@@ -1,5 +1,6 @@
 package org.regyu.sts.singin.service.impl;
 
+import org.regyu.sts.cmmn.security.CryptoUtil;
 import org.regyu.sts.singin.service.SingInService;
 import org.regyu.sts.singin.service.SingInVO;
 import org.slf4j.Logger;
@@ -17,11 +18,11 @@ public class SingInServiceImpl implements SingInService {
 	
 	@Override
 	public void insertMber(SingInVO singInVO) throws Exception {
-//		String encPassword	= CryptoUtil.CryptoSHA3(singInVO.getPassword(), 256);
-//		
-//		logger.info(encPassword);
-//		
-//		singInVO.setPassword(encPassword);
+		String encPassword	= CryptoUtil.CryptoSHA3(singInVO.getPassword(), 256);
+		
+		logger.info(encPassword);
+		
+		singInVO.setPassword(encPassword);
 		
 		SingInMapper.insertMber(singInVO);
 	}

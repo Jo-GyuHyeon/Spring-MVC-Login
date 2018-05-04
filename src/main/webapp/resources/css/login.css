@@ -113,8 +113,14 @@ body{
     padding: 22px 2px 4px;
     color: #764d76;
     font-size: 14px;
+    transition: all 0.8s linear; 
 }
 
+ .login-form input:hover, .login-form input:focus{
+  border-bottom: 2px solid dodgerblue; 
+  transition: all 0.8s ease-out;
+  width: 80%;
+}
 
 /* Set a style for all buttons */
 button {
