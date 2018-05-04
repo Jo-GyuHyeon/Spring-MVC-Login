@@ -64,25 +64,28 @@ public class SingInController {
 	
 	@RequestMapping(value = "singInInsert.do")
 	public String serverSideInsert(@ModelAttribute SingInVO singInVO) throws Exception {
+		logger.info("singInInsert.do");
 		
 		try {
-			singInService.insertMber(singInVO);
+			singInService.insertMber(singInVO);		
 		} catch (Exception e) {
-			
+			e.getStackTrace();
 		}
 		
-		return "forward:/login.do";
+		return "singIn/singIn";
 	}
 	
 	//annotaion VO vaild check
 	@RequestMapping(value = "annosingIn.do")
 	public String annosingIn(@ModelAttribute AnnoSingInVO annosingInVO) throws Exception {
+		logger.info("annosingIn.do");
 		return "singIn/singIn";
 	}
 	
 	@RequestMapping(value = "annosingInValidChk.do")
 	public String annosingInValidChk(@ModelAttribute @Valid AnnoSingInVO annosingInVO,
 			BindingResult bindingResult) throws Exception {
+		logger.info("annosingInValidChk.do");
 		logger.info("에러 여부 : " + bindingResult.hasErrors());
 
 		return "singIn/singIn";
