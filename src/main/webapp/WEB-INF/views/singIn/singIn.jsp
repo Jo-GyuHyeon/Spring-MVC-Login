@@ -26,7 +26,7 @@
 		
 		vaildFn 		: function() {
 			
-			//this.$singInVO.attr("action", "annoServerSideValidChk.do");
+			//this.$singInVO.attr("action", "annosingInValidChk.do");
 			 if (typeof(grecaptcha) !== 'undefined') {
 				
 				if (grecaptcha.getResponse() === "") {
@@ -36,14 +36,14 @@
 				}
 			} 
 			
-			//this.$singInVO.attr("action", "annoServerSideValidChk.do");
-			this.$singInVO.attr("action", "serverSideValidChk.do");
+			//this.$singInVO.attr("action", "annosingInValidChk.do");
+			this.$singInVO.attr("action", "singInValidChk.do");
 			
 			this.$singInVO.submit();
 		},
 		
 		checkEsangMu	: function() {
-			this.$singInVO.attr("action", "serverSideInsert.do");
+			this.$singInVO.attr("action", "singInInsert.do");
 			
 			this.$singInVO.submit();
 		}
