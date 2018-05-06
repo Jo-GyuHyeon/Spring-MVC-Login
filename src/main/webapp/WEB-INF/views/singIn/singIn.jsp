@@ -17,11 +17,13 @@
 
   	var commonCl = {
 		$singInVO 	: null,
+		$phone		: null,
 		
 		validInit 		: function(){
 			//this.$singInVO = $("#annosingInVO");
 			
 			this.$singInVO = $("#singInVO");
+			this.$phone = $('#phone');
 		},
 		
 		vaildFn 		: function() {
@@ -46,11 +48,34 @@
 			this.$singInVO.attr("action", "serverSideInsert.do");
 			
 			this.$singInVO.submit();
+		},
+		
+		autoHyphen		: function() {
+			$('#phone').keyup(function() {
+				
+		        var val = this.value.replace(/\D/g, '');
+		        var newVal = '';
+
+		       	   	for(i=0; val.length > 3 && i<2 ;i++){
+		         	   newVal += val.substr(0, 3) + '-';
+		         	   val = val.substr(3);
+		         	   
+		               if(val.length === 8){
+		               	val= val.substr(0, 4) + '-' +val.substr(4) ;
+		               	break;
+		               }
+		            }
+
+		      	newVal += val;
+		        this.value = newVal;
+		        
+		    });
 		}
 	} 
 	
 	$(function() {
 		commonCl.validInit();
+		commonCl.autoHyphen();
 
         $("#registBtn").click(function() {        	
         	commonCl.vaildFn();
@@ -108,7 +133,7 @@
                 <li>
 	                <div>
 	                	<i class="fa fa-volume-control-phone icon"></i>
-	                    <form:input path="phoneNumber" class="input-field" type="text" placeholder="PhoneNumber" name="phone"/>
+	                    <form:input path="phoneNumber" class="input-field" type="text" maxlength="13" placeholder="PhoneNumber" name="phone" id="phone"/>
 	                </div>
                     <form:errors path="phoneNumber" class="errors-field"/>
                 </li>

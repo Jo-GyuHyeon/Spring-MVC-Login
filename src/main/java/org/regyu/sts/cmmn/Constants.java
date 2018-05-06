@@ -10,8 +10,10 @@ public interface Constants {
 	final static String ERROR_MINLENGTH	= "errors.minLength";
 	final static String ERROR_MAXLENGTH	= "errors.maxLength";
 	final static String ERROR_PWCONFIRM	= "errors.pwConfirm";
+	final static String ERROR_PHONENUMBER= "errors.phoneNumber";
 	
-	final static String ERROR_REGEX		= "^[_0-9a-zA-Z-\\.]+@[_0-9a-zA-Z-]+\\.([\\._0-9a-zA-Z-]+)*$";
+	final static String EMAIL_REGEX		= "^[_0-9a-zA-Z-\\.]+@[_0-9a-zA-Z-]+\\.([\\._0-9a-zA-Z-]+)*$";
+	final static String PHONENUMBER_REGEX	= "^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$";
 	
 	
 }
