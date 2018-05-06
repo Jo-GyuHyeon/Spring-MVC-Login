@@ -87,7 +87,7 @@ public class SingInVOValidator implements Validator {
 	}
 
 	private boolean emailChk(String mberId) {
-		String regex = Constants.ERROR_REGEX;
+		String regex = Constants.EMAIL_REGEX;
 
 		if (!mberId.matches(regex)) {
 			return false;
@@ -210,7 +210,29 @@ public class SingInVOValidator implements Validator {
 
 		if (!chk) {
 			errors.rejectValue(fieldName, errorCode, new Object[] { propFieldName }, null);
+			
+			return;
 		}
+		//전화번호 유효성 체크 시작
+		errorCode	= Constants.ERROR_PHONENUMBER;
+		
+		chk = phoneNumberChk(phoneNumber);
+		
+		if (!chk) {
+			errors.rejectValue(fieldName, errorCode, new Object[] {propFieldName}, null);
+			
+			return;
+		}		
+	}
+	
+	private boolean phoneNumberChk(String phoneNumber) {
+		String regex	= Constants.PHONENUMBER_REGEX;
+		
+		if (!phoneNumber.matches(regex)) {
+			return false;
+		}
+		
+		return true;
 	}
 
 
