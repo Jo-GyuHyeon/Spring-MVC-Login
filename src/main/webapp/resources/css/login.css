@@ -1,0 +1,161 @@
+img{
+    vertical-align: top;
+    width: 35%;
+    border-radius: 50%;
+}
+
+ul{
+    list-style:none;
+    padding-left:0px;
+}
+
+a{
+    text-decoration: none;
+}
+
+input {
+    outline: none;
+}
+
+body{
+    background-color: #1d1f20;
+    font-family: 'Noto Sans',sans-serif;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+	*{
+        transition: all 0.8s linear; 
+    }
+    body{
+        margin: -1px;
+        padding: 0px;
+    }
+     .login-top {
+        transition: all 0.8s linear; 
+        margin-top: 20%;
+        padding: 0px;
+    } 
+    .login-wrapp{
+        transition: all 0.8s linear; 
+        margin: -2%;
+        padding: 0px;
+    }
+}
+@media screen and (max-width: 760px) {
+    body{
+        margin: -1px;
+        padding: 0px;
+    }
+    img{
+        margin-top: 20%;
+    }
+     .login-top {
+        transition: all 0.8s linear; 
+        height: 100%;
+        margin-top: -4%;
+    } 
+    .login-box{
+        margin-top: -4%;
+    }
+}
+
+.login-wrapp{
+    background-color: #1d1f20;
+    width: 600px;
+    margin: 20px auto;
+    border-bottom: 1px solid #1d1f20;
+    box-shadow: 8px 11px 31px rgba(0, 0, 0, 0.3);
+    transition: all 0.8s linear; 
+}
+
+ .login-top{
+    background-color: #201d1e;
+    padding: 60px 0 120px;
+    text-align: center;
+} 
+
+ .login-box{
+    background-color: #1d1f20;
+    margin: -40px 40px 40px;
+    border-radius: 20px;
+    padding: 20px 48px 40px;
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.3)
+    transition: all 0.8s linear; 
+}
+
+.login-title{
+    font-size: 30px;
+    color: dodgerblue;
+    text-align: center;
+    font-weight: 400;
+} */
+
+.login-form{
+    margin-top: 30px;
+}
+
+.login-form li:first-child{
+    margin-top: 25px; 
+}
+
+.login-guide{
+    font-size: 14px;
+    color: dodgerblue;
+    font-weight: 400;
+}
+
+.login-form input{
+    display:block;
+    width: 100%; 
+    border: #e5d1e5;
+    border-bottom: 1px solid #e5d1e5;
+    background-color: #1d1f20;
+    padding: 22px 2px 4px;
+    color: #764d76;
+    font-size: 14px;
+    transition: all 0.8s linear; 
+}
+
+ .login-form input:hover, .login-form input:focus{
+  border-bottom: 2px solid dodgerblue; 
+  transition: all 0.8s ease-out;
+  width: 80%;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 80px;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+    opacity: 0.8;
+}
+
+a.login-guide{
+    float: right;
+}
+
+a.login-guide:hover{
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}

@@ -97,7 +97,7 @@
 		                            	<a href="#" onclick="javascript:left.pageSubmitFn('socialNaverSync')">네이버아이디연동</a>
 		                            </li>
 		                            <li prop="menu" class="active" id="logoutGo">
-		                            	<a href="#" onclick="javascript:left.pageSubmitFn('logoutGo')">로그아웃</a>
+		                            	<a href="logout.do" onclick="javascript:left.pageSubmitFn('logoutGo')">로그아웃</a>
 		                            </li>
                             	</c:otherwise>
                             </c:choose>

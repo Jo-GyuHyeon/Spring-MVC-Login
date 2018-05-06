@@ -72,7 +72,7 @@ public class SingInController {
 			e.getStackTrace();
 		}
 		
-		return "singIn/singIn";
+		return "login/login";
 	}
 	
 	//annotaion VO vaild check
