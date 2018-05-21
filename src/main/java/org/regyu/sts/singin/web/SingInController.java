@@ -64,19 +64,22 @@ public class SingInController {
 	
 	@RequestMapping(value = "singInInsert.do")
 	public String serverSideInsert(@ModelAttribute SingInVO singInVO) throws Exception {
+		logger.info("singInInsert.do");
 		
 		try {
 			singInService.insertMber(singInVO);
 		} catch (Exception e) {
 			
 		}
-		
 		return "forward:/login.do";
+		//return "singIn/singIn";
 	}
 	
 	//annotaion VO vaild check
 	@RequestMapping(value = "annosingIn.do")
 	public String annosingIn(@ModelAttribute AnnoSingInVO annosingInVO) throws Exception {
+		logger.info("annosingIn.do");
+		
 		return "singIn/singIn";
 	}
 	
