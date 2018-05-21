@@ -29,14 +29,18 @@
 		vaildFn 		: function() {
 			
 			//this.$singInVO.attr("action", "annosingInValidChk.do");
+<<<<<<< HEAD
 			 if (typeof(grecaptcha) !== 'undefined') {
+=======
+/* 			  if (typeof(grecaptcha) !== 'undefined') {
+>>>>>>> origin/dec_valid
 				
 				if (grecaptcha.getResponse() === "") {
 					alert("스팸방지코드(Captcha Code)가 틀렸습니다.");
 					
 					return;
 				}
-			} 
+			}   */
 			
 			//this.$singInVO.attr("action", "annosingInValidChk.do");
 			this.$singInVO.attr("action", "singInValidChk.do");
@@ -55,16 +59,24 @@
 				
 		        var val = this.value.replace(/\D/g, '');
 		        var newVal = '';
+		       	var cnt = 2;
+		        
+		        if(val.length > 2 && val.substr(0, 2)=='02'){
+		        	//ex) 02-
+		        	newVal += val.substr(0, 2) + '-';
+		        	val = val.substr(2);
+		        	cnt --;
+	        	}
 
-		       	   	for(i=0; val.length > 3 && i<2 ;i++){
-		         	   newVal += val.substr(0, 3) + '-';
-		         	   val = val.substr(3);
-		         	   
-		               if(val.length === 8){
-		               	val= val.substr(0, 4) + '-' +val.substr(4) ;
-		               	break;
-		               }
-		            }
+	       	   	for(i=0; val.length > 3 && i<cnt ;i++){
+	         	   newVal += val.substr(0, 3) + '-';
+	         	   val = val.substr(3);
+	         	   
+	               if(val.length === 8){
+	               	val= val.substr(0, 4) + '-' +val.substr(4) ;
+	               	break;
+	               }
+	            }
 
 		      	newVal += val;
 		        this.value = newVal;
@@ -99,7 +111,7 @@
         <form:form commandName="singInVO">
          <%-- <form:form commandName="annosingInVO"> --%>
             <h2 class="register-title">Register Form</h2>
-            <p class="register-title">Please fill in this form to create an Singup.</p>
+            <p class="register-title">Please fill in this form to create a Singup.</p>
 
             <ul class="input-container">
                 <li>	
