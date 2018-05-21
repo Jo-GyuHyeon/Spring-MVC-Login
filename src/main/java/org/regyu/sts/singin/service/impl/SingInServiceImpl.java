@@ -18,6 +18,7 @@ public class SingInServiceImpl implements SingInService {
 	
 	@Override
 	public void insertMber(SingInVO singInVO) throws Exception {
+
 		String encPassword	= CryptoUtil.CryptoSHA3(singInVO.getPassword(), 256);
 		
 		logger.info(encPassword);
