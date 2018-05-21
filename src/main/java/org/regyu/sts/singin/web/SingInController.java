@@ -71,23 +71,14 @@ public class SingInController {
 		} catch (Exception e) {
 			e.getStackTrace();
 		}
-<<<<<<< HEAD
 		
-		return "singIn/singIn";
-=======
-		return "forward:/login.do";
-		//return "singIn/singIn";
->>>>>>> origin/dec_valid
+		return "login/login";
 	}
 	
 	//annotaion VO vaild check
 	@RequestMapping(value = "annosingIn.do")
 	public String annosingIn(@ModelAttribute AnnoSingInVO annosingInVO) throws Exception {
 		logger.info("annosingIn.do");
-<<<<<<< HEAD
-=======
-		
->>>>>>> origin/dec_valid
 		return "singIn/singIn";
 	}
 	

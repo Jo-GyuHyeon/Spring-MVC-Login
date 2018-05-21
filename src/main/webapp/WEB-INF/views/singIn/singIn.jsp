@@ -14,7 +14,6 @@
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	
 	<script type="text/javascript">
-
   	var commonCl = {
 		$singInVO 	: null,
 		$phone		: null,
@@ -29,11 +28,7 @@
 		vaildFn 		: function() {
 			
 			//this.$singInVO.attr("action", "annosingInValidChk.do");
-<<<<<<< HEAD
 			 if (typeof(grecaptcha) !== 'undefined') {
-=======
-/* 			  if (typeof(grecaptcha) !== 'undefined') {
->>>>>>> origin/dec_valid
 				
 				if (grecaptcha.getResponse() === "") {
 					alert("스팸방지코드(Captcha Code)가 틀렸습니다.");
@@ -67,7 +62,6 @@
 		        	val = val.substr(2);
 		        	cnt --;
 	        	}
-
 	       	   	for(i=0; val.length > 3 && i<cnt ;i++){
 	         	   newVal += val.substr(0, 3) + '-';
 	         	   val = val.substr(3);
@@ -77,7 +71,6 @@
 	               	break;
 	               }
 	            }
-
 		      	newVal += val;
 		        this.value = newVal;
 		        
@@ -88,7 +81,6 @@
 	$(function() {
 		commonCl.validInit();
 		commonCl.autoHyphen();
-
         $("#registBtn").click(function() {        	
         	commonCl.vaildFn();
         });
