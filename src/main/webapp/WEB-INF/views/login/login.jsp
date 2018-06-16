@@ -18,7 +18,104 @@
        	loginCls.loginFn();
         loginCls.loginMessage();
         
+        resetCls.resetInit();
+     	resetCls.resetInitFn();
+     	
     });
+   	
+	// 비밀번호 초기화를 위한 클래스
+   	var resetCls = {
+		
+		$btnResetPwdForm	: $,
+		$modalResetPwd		: $,
+		$mask				: $,
+		$btnResetProc		: $,
+		$btnResetClose		: $,
+		$resetId			: $,
+ 			
+		resetInit	: function() {
+			this.$btnResetPwdForm = $('#btnResetPwdForm');
+			this.$modalResetPwd = $('#modalResetPwd');
+			this.$mask = $('#mask');
+			this.$btnResetProc = $('#btnResetProc');
+			this.$btnResetClose = $('#btnResetClose');
+			this.$resetId = $('#resetId');
+		},
+		
+		resetInitFn	: function() {
+			var that = this;
+			this.$btnResetPwdForm.click(function() {
+				that.$mask.css("opacity", "0.9").css("z-index","10000").show();
+				
+				that.$modalResetPwd.css("z-index","11000").show();
+				
+			})
+			
+			this.$btnResetClose.click(function() {
+				that.$mask.hide();
+				
+				that.$modalResetPwd.hide();
+				
+			})
+			
+			this.$btnResetProc.click(function() {
+				
+				
+			/* 	if(!validateEmailChk(that.$resetId,"아이디")){
+					return;
+				}
+				if(!validateEmailChk(that.$resetId.val())){
+					return;
+				} */
+				
+				var controllerUrl	= "resetPwd.do",
+				param				= {"id" : that.$resetId.val()};
+				
+				$.ajax({
+					url		:	controllerUrl,
+					data	: param,
+					type	: "post",
+					
+					success: function(data){
+						
+						if(data === "success"){
+							alert("비밀번호 초기화 안내 메일이 발송되었습니다.");
+							location.reload();
+						}
+						
+					}
+				});
+				
+			})
+		}
+   	}
+	
+	var validateEmptyChk = function(target, msg){
+		var val = $.trim(target.val());
+		
+		if(val === ""){
+			alert(msg + "은/는 필수입력 값입니다.");
+			
+			target.focus();
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+   	var validateEmailChk = function(email){
+   		var emailRegax	= /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+			
+			if (!emailRegax.test(email.toLowerCase())) {
+				alert("아이디가 유효하지 않습니다.");
+				
+				return;
+			}
+		
+		return true;
+	}
+	
    	
  // 로그인 클래스
    	var loginCls	= {
@@ -40,35 +137,17 @@
    			this.$loginBtn.click(function(e) {
    				e.preventDefault();
    				
-   				if(that.$checkId.val()){
-   					//alert("true");
-   					saveid(document.loginFrm);
-   				}
-   				
-   				if ($.trim(that.$id.val()) === "") {
-   					alert("아이디는 필수 입력 값입니다.");
-   					
-   					that.$id.focus();
-   					
+   				if(!validateEmptyChk(that.$id,"아이디")){
    					return;
    				}
    				
-   				if ($.trim(that.$password.val()) === "") {
-   					alert("비밀번호는 필수 입력 값입니다.");
-   					
-   					that.$password.focus();
-   					
+   				if(!validateEmptyChk(that.$password,"비밀번호")){
    					return;
    				}
    				
-   				var emailRegax	= /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-   				
-   				if (!emailRegax.test(that.$id.val().toLowerCase())) {
-   					alert("아이디가 유효하지 않습니다.");
-   					
+   				if(!validateEmailChk(that.$id.val())){
    					return;
    				}
-   				
    				
    				
    				$("#loginFrm").submit();
@@ -139,7 +218,10 @@
     </script>
     
 <link rel="stylesheet" href="./resources/css/login.css" type="text/css">
-
+<style>
+		#mask            {position:absolute; width:100%; height:100%; left:0; top:0; background-color:#000; display:none;}
+		#modalResetPwd      {position:absolute; top:50%; margin-top:-150px; width:100%; display:none;}
+</style>
 <title>Login</title>
 </head>
 <body>
@@ -173,10 +255,27 @@
 			Remember me
         </label>
         
-        <a href="#" class="login-guide"> Forgot password</a>
+        <a href="#" class="login-guide" id ="btnResetPwdForm"> Forgot password</a>
       </form>
     </div>
   </div>
+  
+  <div id="mask"></div>
+	<div style="display: none" id="modalResetPwd">
+	    <div class="login-wrapp">
+		    <div class="login-box" style="margin-top:10px">
+		        <div class="login-title" style="font-size: 17px;">비밀번호 초기화</div>
+		        <div class="login-guide">
+		            <div class="login-form">
+		                <label>아이디</label>
+		                <input type="text" id="resetId" placeholder="아이디(이메일)를 입력하세요." class="" maxlength="50" required="required" />
+		            </div>
+		        </div>
+	            <button id="btnResetProc" class="" style="margin-bottom:10px">초기화 메일 발송</button>
+	            <button id="btnResetClose" class="" style="margin-bottom:10px">닫기</button>
+		    </div>
+	    </div>
+	</div>
 </body>
    
 </html>

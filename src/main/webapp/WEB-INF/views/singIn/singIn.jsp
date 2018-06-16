@@ -14,7 +14,6 @@
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	
 	<script type="text/javascript">
-
   	var commonCl = {
 		$singInVO 	: null,
 		$phone		: null,
@@ -36,7 +35,7 @@
 					
 					return;
 				}
-			}   */
+			}   
 			
 			//this.$singInVO.attr("action", "annosingInValidChk.do");
 			this.$singInVO.attr("action", "singInValidChk.do");
@@ -63,7 +62,6 @@
 		        	val = val.substr(2);
 		        	cnt --;
 	        	}
-
 	       	   	for(i=0; val.length > 3 && i<cnt ;i++){
 	         	   newVal += val.substr(0, 3) + '-';
 	         	   val = val.substr(3);
@@ -73,7 +71,6 @@
 	               	break;
 	               }
 	            }
-
 		      	newVal += val;
 		        this.value = newVal;
 		        
@@ -84,7 +81,6 @@
 	$(function() {
 		commonCl.validInit();
 		commonCl.autoHyphen();
-
         $("#registBtn").click(function() {        	
         	commonCl.vaildFn();
         });
