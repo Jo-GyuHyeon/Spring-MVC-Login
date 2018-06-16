@@ -1,14 +1,13 @@
 package org.regyu.sts.login.service.impl;
 
 import java.util.HashMap;
-import java.util.Locale;
 
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.regyu.sts.cmmn.Constants;
-import org.regyu.sts.cmmn.MailService;
 import org.regyu.sts.cmmn.security.CryptoUtil;
+import org.regyu.sts.cmmn.service.MailService;
 import org.regyu.sts.login.service.LoginService;
 import org.regyu.sts.login.service.LoginVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,9 +65,9 @@ public class LoginServiceImpl implements LoginService {
 	@Override
 	public void sendEmail(HashMap<String, String> reqMap) throws Exception {
 
-		String host = messageSource.getMessage("host", null, Locale.KOREA),
-				port = messageSource.getMessage("port", null, Locale.KOREA),
-				contextPath = messageSource.getMessage("contextPath", null, Locale.KOREA),
+		String host = "http://http://lwww.regyu.com",
+				port = "8080",
+				contextPath = "/sts",
 				reqUrl = "/resetPasswordForm.do", hash = (String) reqMap.get("hash"), id = (String) reqMap.get("id");
 
 		String linkUrl = host + ":" + port + "/" + contextPath + reqUrl + "?hash=" + hash + "&id=" + id;
