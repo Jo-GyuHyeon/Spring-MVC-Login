@@ -1,17 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.regyu.sts.login.service.impl.LoginMapper">
-	
+
 	<!-- 아이디 조회 -->
 	<select id="actionLogin" parameterType="loginVO" resultType="loginVO">
-      SELECT MBER_ID    AS id,
-             MBER_NM    AS name
-        FROM user_info
-        <where>
-         AND MBER_ID   = #{id}
-         AND PASSWORD = #{password}
-         AND USE_YN   = 'Y'
-        </where>
-   </select>
-   
+		SELECT MBER_ID AS id,
+		MBER_NM AS name
+		FROM user_info
+		<where>
+			AND MBER_ID = #{id}
+			AND PASSWORD = #{password}
+			AND USE_YN = 'Y'
+		</where>
+	</select>
+
+	<select id="getUserCnt" parameterType="map" resultType="Integer">
+		SELECT COUNT(*)
+		FROM USER_INFO
+		<where>
+			AND MBER_ID = #{id}
+		</where>
+	</select>
+
+	<insert id="resetPassword" parameterType="map">
+		INSERT INTO
+		USER_RESET_HISTORY (MBER_ID, AUTHKEY)
+		VALUES (#{id}, #{hash})
+	</insert>
+
+	<select id="getResetUser" parameterType="map" resultType="Integer">
+		SELECT USER_HIST_ID
+		FROM USER_RESET_HISTORY
+		WHERE MBER_ID =
+		#{id}
+		AND AUTH_YN = 'N'
+		AND AUTHKEY = #{hash}
+		AND USER_HIST_ID = (SELECT
+		MAX(USER_HIST_ID)
+		FROM USER_RESET_HISTORY
+		WHERE MBER_ID = #{id})
+	</select>
+
+	<update id="updateResetUser" parameterType="map">
+		UPDATE
+		USER_RESET_HISTORY
+		SET AUTH_YN = 'Y'
+		WHERE MBER_ID= #{id}
+		AND AUTHKEY=
+		#{hash}
+		AND AUTH_YN= 'N'
+		AND USER_HIST_ID = #{resetUserId}
+	</update>
+
+	<update id="changePassword" parameterType="map">
+		UPDATE USER_INFO
+		SET
+		PASSWORD = #{password}
+		WHERE MBER_ID= #{id}
+	</update>
+
 </mapper>

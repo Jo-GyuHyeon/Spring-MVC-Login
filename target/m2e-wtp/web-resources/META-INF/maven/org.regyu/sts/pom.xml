@@ -201,6 +201,39 @@
 			<version>1.59</version>
 		</dependency>
 		<!-- SHA-3// -->
+		
+		<!-- 일반적인 설정 모음 -->
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<!-- 일반적인 설정 모음 끝 -->
+
+		<!-- 스프링 메일 설정 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		<!-- 스프링 메일 설정 끝 -->
+
+		<!-- Gmail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- // Gmail -->
+
+      <!-- 트랜잭션 -->
+      <dependency>
+		  <groupId>org.aspectj</groupId>
+		  <artifactId>aspectjweaver</artifactId>
+		  <version>1.6.11</version>      
+      </dependency>
+      <!-- //트랜잭션 -->
+      
 	</dependencies>
 	<build>
 		<plugins>
